@@ -19,7 +19,7 @@ struct nset {
 int rangeSet(char* src, int position);
 void parseTransferList(char* path);
 void initOutputFile(ofstream *output_file_obj, int BLOCKSIZE);
-int getFileSize();
+long getFileSize();
 
 bool isValid = false;
 int isNew = -1;
@@ -249,7 +249,7 @@ void initOutputFile(ofstream *output_file_obj, int BLOCK_SIZE) {
 
 
 // Retrieves the Total size of the Image
-int getFileSize() {
+long getFileSize() {
     long maxBlock = 0;
     long blockSize = 0;
     for(int m = 0; m < 3; m++) {
