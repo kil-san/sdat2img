@@ -83,8 +83,8 @@ int main(int argc, char* argv[]) {
         long start = currentBlock->block[0];
 
         long blockCount = stop - start;
-        unsigned long blocks = blockCount * BLOCK_SIZE;
-        unsigned long position = start * BLOCK_SIZE;
+        long long blocks = blockCount * BLOCK_SIZE;
+        long long position = start * BLOCK_SIZE;
         unsigned long offset = position % ULONG_MAX;
         int cycles = position / ULONG_MAX;
 
@@ -228,7 +228,7 @@ void parseTransferList(char* path) {
 // Create empty image with Correct size;
 void initOutputFile(ofstream *output_file_obj, int BLOCK_SIZE) {
     long maxBlock = getFileSize();
-    unsigned long position = maxBlock * BLOCK_SIZE - 1;
+    long long position = maxBlock * BLOCK_SIZE - 1;
     unsigned long offset = position % ULONG_MAX;
     int cycles = position / ULONG_MAX;
 
