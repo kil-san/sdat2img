@@ -78,12 +78,12 @@ int main(int argc, char* argv[]) {
     uint8_t* data;
 
     for (int i = 0; i < sets[isNew]->length; i++) {
-        Pair* currentBlock = sets[isNew]->pairs + i;
-        long stop = currentBlock->block[1];
-        long start = currentBlock->block[0];
+        Pair* currentPair = sets[isNew]->pairs + i;
+        long stop = currentPair->block[1];
+        long start = currentPair->block[0];
 
         long blockCount = stop - start;
-        long long blocks = blockCount * BLOCK_SIZE;
+        long blocks = blockCount * BLOCK_SIZE;
         long long position = start * BLOCK_SIZE;
         unsigned long offset = position % ULONG_MAX;
         int cycles = position / ULONG_MAX;
